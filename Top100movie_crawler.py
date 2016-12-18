@@ -7,15 +7,16 @@ import urllib2
 
 #create a simple spider and use it to crawl Top 100 moive's name
 #from https://movie.douban.com/top250?start={page}&filter=&type=
+#https://movie.douban.com/top250?start=225&filter=
 #and output the result list
 
 class DouBanSpider(object):
     def __init__(self):
         self.page=1
-        self.current_url="http://movie.douban.com/top250?start={page}&filter=&type="
+        self.current_url="http://movie.douban.com/top250?start={page}&filter="
         self.data=[]
         self._top_num=1
-        print " begin to scrap the top 100 movies from Douban website..."
+        print "Now begin to scrap the top 250 movies from Douban website..."
     def get_page(self,cur_page):
         url=self.current_url
         try:
@@ -40,12 +41,12 @@ class DouBanSpider(object):
                 self._top_num+=1
         self.data.extend(temp_data)
     def start_spider(self):
-        while self.page<=4:
+        while self.page<=10:
             my_page=self.get_page(self.page)
             self.find_title(my_page)
             self.page+=1
 def main():
-    print "scrap Top 100 movie from moviw.douban.com"
+    print "scrap Top 250 movie from moviw.douban.com"
     my_spider=DouBanSpider()
     my_spider.start_spider()
     for item in my_spider.data:
