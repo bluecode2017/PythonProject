@@ -1,5 +1,8 @@
+# python 3.5.0
+
 import requests
 import xml.etree.ElementTree as ET
+# also can use : from lxml import etree
 from xml.parsers.expat import ParserCreate
 
 class DefaultSaxHandler(object):
