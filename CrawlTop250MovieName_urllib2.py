@@ -30,8 +30,7 @@ class DouBanSpider(object):
                 print "Reson %s" %e.reason
         return my_page
     def find_title(self,my_page):
-        temp_data=[]
-        # in source html: <span class="title">肖申克的救赎</span>
+        temp_data=[] 
         movie_items=re.findall(r'<span.*?class="title">(.*?)</span>',my_page,re.S)
 
     #    director_items=re.findall(r'<span.*?class="title">(.*?)</span>',my_page,re.S)
